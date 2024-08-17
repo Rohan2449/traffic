@@ -1,10 +1,12 @@
 import traffic
 
+images, labels = traffic.load_data("gtsrb")
 
 
+for i in range(traffic.NUM_CATEGORIES):
+    print("IMAGES")
+    print(images)
+
+    print(f"\nLABEL: {labels[i]}")
 
 
-# images, labels = traffic.load_data("traffic/gtsrb")
-
-# print(images)
-# print(labels)

@@ -13,8 +13,6 @@ NUM_CATEGORIES = 43
 TEST_SIZE = 0.4
 
 
-
-
 def main():
 
     # Check command-line arguments
@@ -63,15 +61,18 @@ def load_data(data_dir):
     labels = []
     images = []
     # loop through each folder in the directory
-    for i in range(NUM_CATEGORIES - 1):
+    for i in range(NUM_CATEGORIES):
         labels.append(i)
-        folder = os.path.join(os.sep, str(i))
+        folder =  str(i)
 
         # loop through each file in the folder
-        for file in os.listdir(os.path.join(data_dir, folder)):
-
+        folder_path = os.path.join(data_dir, folder)
+        print(f"Folder path: {folder_path}")
+        for file in os.listdir(folder_path):
+            print(file)
+            file_path = os.path.join(folder_path, file)
             # read the image file, and resize the image to width = IMG_WIDTH, height = IMG_HEIGHT
-            image = cv2.imread(file)
+            image = cv2.imread(file_path)
             image = cv2.resize(image, dsize = (IMG_WIDTH, IMG_HEIGHT))
 
             #add the image to the list of all images
