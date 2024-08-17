@@ -1,12 +1,16 @@
-import traffic
-
-images, labels = traffic.load_data("gtsrb")
+from traffic import *
 
 
-for i in range(traffic.NUM_CATEGORIES):
-    print("IMAGES")
-    print(images)
+print(tf.keras.__version__)
 
-    print(f"\nLABEL: {labels[i]}")
+images, labels = load_data("gtsrb")
+
+print(len(images))
+
+# for i in range(traffic.NUM_CATEGORIES):
+#     print("IMAGES")
+#     print(images)
+
+#     print(f"\nLABEL: {labels[i]}")
 
 
