@@ -62,15 +62,16 @@ def load_data(data_dir):
     images = []
     # loop through each folder in the directory
     for i in range(NUM_CATEGORIES):
-        labels.append(i)
         folder =  str(i)
+        folder_path = os.path.join(data_dir, folder)
 
         # loop through each file in the folder
-        folder_path = os.path.join(data_dir, folder)
-        print(f"Folder path: {folder_path}")
         for file in os.listdir(folder_path):
-            print(file)
+            # record the label of the image
+            labels.append(i)
+
             file_path = os.path.join(folder_path, file)
+
             # read the image file, and resize the image to width = IMG_WIDTH, height = IMG_HEIGHT
             image = cv2.imread(file_path)
             image = cv2.resize(image, dsize = (IMG_WIDTH, IMG_HEIGHT))
